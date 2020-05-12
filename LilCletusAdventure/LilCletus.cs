@@ -43,6 +43,19 @@ namespace LilCletusAdventure
             }
         }
 
-
+        public void checkItems()
+        {
+            if (ItemBag.Count == 0)
+            {
+                Console.WriteLine("Your pockets are empty");
+            }
+            else
+            {
+                for(int i = 0; i < ItemBag.Count; i++)
+                {
+                    Console.WriteLine(ItemBag[i].Name + " - " + ItemBag[i].Description);
+                }
+            }
+        }
     }
 }

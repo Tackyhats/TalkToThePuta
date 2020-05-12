@@ -12,5 +12,28 @@ namespace LilCletusAdventure
             Console.ReadKey();
             Console.Clear();
         }
+
+        public static bool YesOrNo(string question) 
+        {
+            Console.WriteLine(question);
+            Console.WriteLine(" (Y/N?)");
+            string response = Console.ReadLine()
+                                     .ToUpper();
+
+
+            switch(response)
+            {
+                case "Y":
+                    return true;
+
+                case "N":
+                    return false;
+                default:
+                    Console.WriteLine("Answer Y or N to continue");
+                    YesOrNo(question);
+                    break;
+            }
+            return false;
+        }
     }
 }

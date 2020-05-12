@@ -6,6 +6,7 @@ namespace LilCletusAdventure
     {
         static void Main(string[] args)
         {
+
             LilCletus testCleet = new LilCletus(20, 20, 20, 100);
             StoryLine.GetWoke(testCleet);
 

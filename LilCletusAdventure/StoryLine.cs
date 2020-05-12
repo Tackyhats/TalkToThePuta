@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace LilCletusAdventure
@@ -257,13 +258,17 @@ namespace LilCletusAdventure
             List<Buff> maskBuffs =new List<Buff>() { maskBuff };
             List<Buff> shadesBuffs = new List<Buff>() { shadesBuff };
 
+// Adding item descrptions outside of the list to make it more readable
             string maskDes = "A small square piece of fabric. It smells like old whiskey, and gives minor protection from \n" +
                 "the toxic air outside.";
             string shadesDes = "Awesome pre-rag sunglasses. The apocolaypse is no excuse to not look super badass.";
 
-            Item mask = new Item(maskDes, false, maskBuffs);
-            Item shades = new Item(shadesDes, false, shadesBuffs);
+// Adds items to item constructor and adds the parameters to them
+            Item mask = new Item("Face mask", maskDes, false, maskBuffs);
+            Item shades = new Item("Sick Shades", shadesDes, false, shadesBuffs);
 
+
+// checks if actions are already completed
             bool didLookUnderNews = false;
             bool didLookInMirror = false;
             bool didOpenChest = false;
@@ -271,13 +276,14 @@ namespace LilCletusAdventure
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("The morning has not been kind. You lack purpose and direction. \n " +
-                    "You got shit to do today, and going outside is nessesary. \n" +
-                    "You need your apocolypse shades and a mask to protect yourself. \n" +
-                    "You survey the room. It's a dump. You see a desk with a damp newspaper on it \n" +
-                    "There is a mirror propped against the wall \n" +
-                    "A large treause chest with the word 'treasure' hastily scribble in crayon sits at the end of your bed \n\n" +
-                    "What would you like to do?");
+                Console.WriteLine("The morning has not been kind. You lack purpose and direction." +
+                    "\nYou got shit to do today, and going outside is nessesary. " +
+                    "\nYou need your apocolypse shades and a mask to protect yourself." +
+                    "\nYou survey the room. It's a dump. You see a desk with a damp newspaper on it " +
+                    "\nThere is a mirror propped against the wall " +
+                    "\nA large treause chest with the word 'treasure' hastily scribble in crayon sits at the end of your bed " +
+                    "\nI refuse to face the outside world lookin like a simp and also probably dying" +
+                    "\nWhat would you like to do?");
                 if(!didLookUnderNews)
                 {
                     Console.WriteLine("\n1.  Read newspaper");
@@ -290,6 +296,7 @@ namespace LilCletusAdventure
                 {
                     Console.WriteLine("\n3.  Check 'treasure' chest");
                 }
+                Console.WriteLine("\n4.   Go outside" );
 
                 Console.WriteLine("Enter the number of the choice you'd like to make");
 
@@ -337,7 +344,40 @@ namespace LilCletusAdventure
                             didOpenChest = true;
                         }
                         break;
-                }
+                    case "4":
+                        bool response = true;
+                        if(!didLookUnderNews && !didLookInMirror)
+                        {
+                            response = ConsoleStuff.YesOrNo("Leaving without double checking your rad levels is dangerous." +
+                                "\n Odin's wrath will surely reach you in this state. You sure you want to leave?");
+                        }
+                        if (!didLookUnderNews)
+                        {
+                            response = ConsoleStuff.YesOrNo("You're about to leave without looking fresh af. Are you sure?");
+                        }
+                        else if (!didLookInMirror)
+                        {
+                            response = ConsoleStuff.YesOrNo("You can't leave without a self occular pat down. Are you sure?");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Your swag is sufficient; Odin will be pleased. Time to head outside.");
+                            break;
+                        }
+                        if (response)
+                        {
+                            Console.WriteLine("The skies darken and a rumbling can be heard. You see a shadowy figure descend from the skies." +
+                                "\nIt's lord Odin on his mighty steed, Slippy. His voice resonates inside your skull 'LEAVING " +
+                                "\nWITHOUT PROPER PROTECTION IS AGAINST ALL NORSE LAW'. He immediately smites you with the " +
+                                "\npower and pain of a thousand deaths. Your final thoughts of are how hillarious Odin's real" +
+                                "\nlife horse in Norse mythology is named 'Slippy'");
+                        }
+
+                        break;
+                    default:
+                        Console.WriteLine("Enter a number between 1-4 to continue.");
+                        break;
+                        }
 
                 if (didLookInMirror && didLookUnderNews)
                 {
@@ -350,6 +390,8 @@ namespace LilCletusAdventure
                 }
 
             }
+
+
 
             return lil;
         }
