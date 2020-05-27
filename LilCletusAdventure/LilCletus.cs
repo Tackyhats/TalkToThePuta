@@ -8,13 +8,21 @@ namespace LilCletusAdventure
     {
         public string Name = "Lil Cletus";
 
-        public int Mass;
-        public int Intelegence;
-        public int Attitude;
-        public int Health;
+        public int Mass { get; set; }
+        public int Intelegence { get; set; }
+        public int Attitude { get; set; }
+        public int Health { get; set; }
 
         public List<Item> ItemBag; 
 
+        public LilCletus()
+        {
+            Mass = 20;
+            Intelegence = 20;
+            Attitude = 20;
+            Health = 100;
+            ItemBag = new List<Item>();
+        }
         public LilCletus(int mass, int intel, int att, int health)
         {
             Mass = mass;

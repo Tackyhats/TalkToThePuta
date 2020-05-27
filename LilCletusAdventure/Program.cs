@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LilCletusAdventure.Monsters;
+using System;
 
 namespace LilCletusAdventure
 {
@@ -7,13 +8,15 @@ namespace LilCletusAdventure
         static void Main(string[] args)
         {
 
-            LilCletus testCleet = new LilCletus(20, 20, 20, 100);
-            StoryLine.GetWoke(testCleet);
+            LilCletus testCleet = new LilCletus();
+            Bloke testBloke = new Bloke();
+            Battle.RegularFight(testCleet, testBloke);
 
             //LilCletus character =  StoryLine.CharacterCreator();
 
             //character = StoryLine.GetWoke(character);
 
+            //StoryLine.GetWoke(testCleet);
 
 
 

@@ -385,13 +385,13 @@ namespace LilCletusAdventure
                 }
                 else
                 {
+                    Console.WriteLine("You're swag levels are that of those whom reside on Valhalla. You confidently" +
+                        "\nexit your dump of a home and out into the scorched landscape.");
                     ConsoleStuff.Break();
                     continue;
                 }
 
             }
-
-
 
             return lil;
         }
